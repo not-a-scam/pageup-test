@@ -10,6 +10,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Plus, Minus, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ProductModalProps {
   product: Product | null;
@@ -53,12 +54,22 @@ export const ProductModal = ({
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Image */}
-            <div className="bg-paper-cream p-2 shadow-polaroid">
+            <div className="bg-paper-cream p-2 shadow-polaroid relative">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full aspect-square object-cover"
+                className={cn(
+                  "w-full aspect-square object-cover",
+                  product.soldOut && "opacity-60 grayscale-[0.5]"
+                )}
               />
+              {product.soldOut && (
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <span className="bg-red-500/90 text-white font-handwritten px-6 py-2 text-3xl rotate-[-15deg] shadow-lg border-4 border-white/50">
+                    SOLD OUT
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Details */}
@@ -90,9 +101,13 @@ export const ProductModal = ({
 
               {/* Quantity and Add to Cart */}
               <div className="flex items-center gap-3 pt-2">
-                <div className="flex items-center border-2 border-border rounded-lg overflow-hidden bg-paper-cream">
+                <div className={cn(
+                  "flex items-center border-2 border-border rounded-lg overflow-hidden bg-paper-cream",
+                  product.soldOut && "opacity-50 pointer-events-none"
+                )}>
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    disabled={product.soldOut}
                     className="p-2 hover:bg-muted transition-colors"
                   >
                     <Minus className="h-4 w-4" />
@@ -101,11 +116,13 @@ export const ProductModal = ({
                     type="number"
                     min="1"
                     value={quantity}
+                    disabled={product.soldOut}
                     onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
                     className="w-14 h-10 text-center border-0 p-0 bg-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
                   <button
                     onClick={() => setQuantity(quantity + 1)}
+                    disabled={product.soldOut}
                     className="p-2 hover:bg-muted transition-colors"
                   >
                     <Plus className="h-4 w-4" />
@@ -113,10 +130,16 @@ export const ProductModal = ({
                 </div>
                 <Button
                   onClick={handleAddToCart}
-                  className="flex-1 font-body bg-primary hover:bg-primary/90 text-primary-foreground"
+                  disabled={product.soldOut}
+                  className={cn(
+                    "flex-1 font-body text-primary-foreground",
+                    product.soldOut 
+                      ? "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed" 
+                      : "bg-primary hover:bg-primary/90"
+                  )}
                   size="lg"
                 >
-                  Add to Cart
+                  {product.soldOut ? "Sold Out" : "Add to Cart"}
                 </Button>
               </div>
             </div>

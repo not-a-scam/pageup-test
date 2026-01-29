@@ -7,6 +7,7 @@ export interface Product {
   height: string;
   width: string;
   material: string;
+  soldOut?: boolean;
 }
 
 export interface CartItem {

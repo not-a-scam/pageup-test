@@ -52,12 +52,22 @@ export const ProductCard = ({
       {/* Card Content */}
       <div className="relative p-3 pb-4">
         {/* Image container - polaroid style */}
-        <div className="aspect-square overflow-hidden bg-paper-cream mb-3">
+        <div className="aspect-square overflow-hidden bg-paper-cream mb-3 relative">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover"
+            className={cn(
+              "w-full h-full object-cover transition-opacity duration-300",
+              product.soldOut && "opacity-60 grayscale-[0.5]"
+            )}
           />
+          {product.soldOut && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="bg-red-500/90 text-white font-handwritten px-3 py-1 text-lg rotate-[-15deg] shadow-lg border-2 border-white/50">
+                SOLD OUT
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Product info */}
@@ -72,12 +82,16 @@ export const ProductCard = ({
 
           {/* Quantity and Add to Cart */}
           <div className="flex items-center gap-2 pt-2" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center border border-border rounded-md overflow-hidden bg-paper-cream">
+            <div className={cn(
+              "flex items-center border border-border rounded-md overflow-hidden bg-paper-cream",
+              product.soldOut && "opacity-50 pointer-events-none"
+            )}>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setQuantity(Math.max(1, quantity - 1));
                 }}
+                disabled={product.soldOut}
                 className="p-1.5 hover:bg-muted transition-colors"
               >
                 <Minus className="h-3 w-3" />
@@ -86,6 +100,7 @@ export const ProductCard = ({
                 type="number"
                 min="1"
                 value={quantity}
+                disabled={product.soldOut}
                 onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
                 className="w-10 h-8 text-center border-0 p-0 text-sm bg-transparent [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 onClick={(e) => e.stopPropagation()}
@@ -95,6 +110,7 @@ export const ProductCard = ({
                   e.stopPropagation();
                   setQuantity(quantity + 1);
                 }}
+                disabled={product.soldOut}
                 className="p-1.5 hover:bg-muted transition-colors"
               >
                 <Plus className="h-3 w-3" />
@@ -102,10 +118,16 @@ export const ProductCard = ({
             </div>
             <Button
               onClick={handleAddToCart}
+              disabled={product.soldOut}
               size="sm"
-              className="flex-1 font-body text-sm bg-primary hover:bg-primary/90"
+              className={cn(
+                "flex-1 font-body text-sm",
+                product.soldOut 
+                  ? "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed" 
+                  : "bg-primary hover:bg-primary/90"
+              )}
             >
-              Add to Cart
+              {product.soldOut ? "Sold Out" : "Add to Cart"}
             </Button>
           </div>
         </div>
