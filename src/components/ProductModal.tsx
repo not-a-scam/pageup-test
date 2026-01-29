@@ -37,22 +37,22 @@ export const ProductModal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl bg-transparent border-none shadow-none p-0 !overflow-visible">
+      <DialogContent className="w-[90%] md:w-full max-w-2xl bg-transparent border-none shadow-none p-0 !overflow-visible">
         {/* Rough background */}
         <div className="absolute inset-0 bg-paper-white paper-texture border-2 border-border rough-edges rounded-sm" />
 
         {/* Decorative washi tape */}
-        <Tape variant={(Math.floor(Math.random() * 8) + 1) as TapeVariant} className="-top-3 left-8 -rotate-2 opacity-90 z-20" />
-        <Tape variant={(Math.floor(Math.random() * 8) + 1) as TapeVariant} className="-top-3 right-8 rotate-3 opacity-90 z-20" />
+        <Tape variant={(Math.floor(Math.random() * 8) + 1) as TapeVariant} className="-top-3 left-4 md:left-8 -rotate-2 opacity-90 z-20" />
+        <Tape variant={(Math.floor(Math.random() * 8) + 1) as TapeVariant} className="-top-3 right-4 md:right-8 rotate-3 opacity-90 z-20" />
 
-        <div className="relative p-6 pt-8 z-10">
+        <div className="relative p-4 md:p-6 pt-10 md:pt-8 z-10">
           <DialogHeader className="mb-4">
-            <DialogTitle className="font-handwritten text-4xl text-ink-brown">
+            <DialogTitle className="font-handwritten text-3xl md:text-4xl text-ink-brown">
               {product.name}
             </DialogTitle>
           </DialogHeader>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {/* Image */}
             <div className="bg-paper-cream p-2 shadow-polaroid relative">
               <img
@@ -95,7 +95,7 @@ export const ProductModal = ({
               </div>
 
               {/* Price tag */}
-              <div className="inline-block px-4 py-2 rounded-full bg-washi-yellow font-handwritten text-2xl text-ink-brown">
+              <div className="inline-block px-4 py-2 rounded-full bg-washi-yellow font-handwritten text-xl md:text-2xl text-ink-brown">
                 ${product.price.toFixed(2)}
               </div>
 
