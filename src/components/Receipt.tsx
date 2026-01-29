@@ -9,7 +9,7 @@ import { CheckCircle, Sparkles, Printer, Download } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import html2canvas from 'html2canvas';
-import whiteCrumpledPaper from '@/assets/background/white-crumpled-paper-texture.jpg';
+import whiteCrumpledPaper from '@/assets/background/white-crumpled-paper-texture.webp';
 
 interface ReceiptProps {
   items: CartItem[];

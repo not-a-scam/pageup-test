@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/sheet';
 import { Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import paperPageTexture from '@/assets/background/paper-page-texture.png';
+import paperPageTexture from '@/assets/background/paper-page-texture.webp';
 import { Tape, TapeVariant } from '@/components/Tape';
 interface CartProps {
   items: CartItemType[];

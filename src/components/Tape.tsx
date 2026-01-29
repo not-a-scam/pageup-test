@@ -1,11 +1,11 @@
-import tape1 from '@/assets/tapes/washi-tape-1.png';
-import tape2 from '@/assets/tapes/washi-tape-2.png';
-import tape3 from '@/assets/tapes/washi-tape-3.png';
-import tape4 from '@/assets/tapes/washi-tape-4.png';
-import tape5 from '@/assets/tapes/washi-tape-5.png';
-import tape6 from '@/assets/tapes/washi-tape-6.png';
-import tape7 from '@/assets/tapes/washi-tape-7.png';
-import tape8 from '@/assets/tapes/washi-tape-8.png';
+import tape1 from '@/assets/tapes/washi-tape-1.webp';
+import tape2 from '@/assets/tapes/washi-tape-2.webp';
+import tape3 from '@/assets/tapes/washi-tape-3.webp';
+import tape4 from '@/assets/tapes/washi-tape-4.webp';
+import tape5 from '@/assets/tapes/washi-tape-5.webp';
+import tape6 from '@/assets/tapes/washi-tape-6.webp';
+import tape7 from '@/assets/tapes/washi-tape-7.webp';
+import tape8 from '@/assets/tapes/washi-tape-8.webp';
 import { cn } from '@/lib/utils';
 
 const tapes = [

@@ -10,8 +10,8 @@ import { Receipt } from '@/components/Receipt';
 import { Header } from '@/components/Header';
 import { Input } from '@/components/ui/input';
 import { TapeVariant } from '@/components/Tape';
-import backgroundImage from '@/assets/background/background.png';
-import grassImage from '@/assets/background/grass.png';
+import backgroundImage from '@/assets/background/background.webp';
+import grassImage from '@/assets/background/grass.webp';
 import { Sparkles, Search } from 'lucide-react';
 
 const rotations = [
