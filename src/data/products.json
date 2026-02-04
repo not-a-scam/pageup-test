@@ -117,7 +117,7 @@
         "width": "TBD",
         "material": "Resin sealed",
         "discountGroup": -1,
-        "soldOut": false
+        "soldOut": true
     },
     {
         "id": "11",
