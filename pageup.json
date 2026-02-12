@@ -1,6 +1,13 @@
 {
-    "files": [
-        "src/data/discounts.json",
-        "src/data/products.json"
-    ]
+  "files": ["src/data/discounts.json", "src/data/products.json"],
+  "relations": [
+    {
+      "fromFile": "src/data/products.json",
+      "fromField": "discountGroup",
+      "toFile": "src/data/discounts.json",
+      "toField": "id",
+      "labelField": "name",
+      "noneValue": -1
+    }
+  ]
 }
