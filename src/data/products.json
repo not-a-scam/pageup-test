@@ -3,7 +3,7 @@
     "id": "1",
     "name": "breakthrough",
     "price": 1,
-    "image": "breakthrough.webp",
+    "image": "src/assets/products/robot_guide.png",
     "description": "yay breakthrough",
     "height": "TBD",
     "width": "TBD",
