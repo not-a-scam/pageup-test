@@ -1,0 +1,6 @@
+{
+    "files": [
+        "src/data/discounts.json",
+        "src/data/products.json"
+    ]
+}
