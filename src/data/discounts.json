@@ -1,14 +1,14 @@
 [
-    {
-        "id": 1,
-        "name": "Sticker Sale",
-        "minimumItems": 3,
-        "discountPrice": -1
-    },
-    {
-        "id": 2,
-        "name": "Sticker Sheet Sale",
-        "minimumItems": 3,
-        "discountPrice": -2
-    }
+  {
+    "id": 1,
+    "name": "Sticker Sale",
+    "minimumItems": 3,
+    "discountPrice": -1
+  },
+  {
+    "id": 2,
+    "name": "Sticker Sheet Sale",
+    "minimumItems": 3,
+    "discountPrice": -2
+  }
 ]
