@@ -1,5 +1,16 @@
 {
-  "files": ["src/data/discounts.json", "src/data/products.json"],
+  "files": [
+    {
+      "path": "src/data/discounts.json"
+    },
+    {
+      "path": "src/data/products.json",
+      "imagesPath": "src/assets/products",
+      "fields": {
+        "image": { "type": "image" }
+      }
+    }
+  ],
   "relations": [
     {
       "fromFile": "src/data/products.json",
